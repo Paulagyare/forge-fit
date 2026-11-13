@@ -10,7 +10,7 @@
   "theme_color": "#121512",
   "icons": [
     {
-      "src": "./icon.svg?v=homepulse-1",
+      "src": "./icon.svg?v=homepulse-orange-1",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
