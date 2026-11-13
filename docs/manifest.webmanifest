@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "RepRoost — Your Own Gym",
-  "short_name": "RepRoost",
+  "name": "HomePulse — You are your own gym",
+  "short_name": "HomePulse",
   "description": "Home strength. Your own gym.",
   "start_url": "./",
   "scope": "./",
@@ -10,7 +10,7 @@
   "theme_color": "#121512",
   "icons": [
     {
-      "src": "./icon.svg",
+      "src": "./icon.svg?v=homepulse-1",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
