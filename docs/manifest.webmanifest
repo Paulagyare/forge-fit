@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "FORGE — Your Own Gym",
-  "short_name": "FORGE",
+  "name": "RepRoost — Your Own Gym",
+  "short_name": "RepRoost",
   "description": "Home strength. Your own gym.",
   "start_url": "./",
   "scope": "./",

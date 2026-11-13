@@ -1,4 +1,4 @@
-# FORGE — You Are Your Own Gym
+# RepRoost — You Are Your Own Gym
 
 A home-first workout web app built around dumbbells, small spaces, and consistency.
 
@@ -62,8 +62,12 @@ The server source includes private per-user backups and shared posts, routines, 
 
 ## Training guidance
 
-FORGE supplies general templates and transparent planning rules; it does not diagnose conditions, analyze form from video, or estimate medical readiness. Primary training references are linked in Settings: CDC activity guidelines, ACSM resistance-training guidance, and the ACE exercise library. External video searches and community videos are not individually certified.
+REPROOST supplies general templates and transparent planning rules; it does not diagnose conditions, analyze form from video, or estimate medical readiness. Primary training references are linked in Settings: CDC activity guidelines, ACSM resistance-training guidance, and the ACE exercise library. External video searches and community videos are not individually certified.
 
 ## Rights
 
 No open-source license is granted by publishing this repository. Choose a license deliberately before accepting external contributions or commercial distribution.
+
+## Brand
+
+RepRoost brings repetitions and a home base together. The roof-and-dumbbell mark in `web/icon.svg` is an editable vector, used in navigation, browser tabs, and the installable app icon. Legacy internal storage keys and the hosting path are retained so existing records and links keep working. An initial web-name screen is not a trademark or domain clearance.
