@@ -1,0 +1,17 @@
+{
+  "name": "forge-home-strength",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-pages.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "build:worker": "node scripts/build-worker.mjs",
+    "dev": "node scripts/preview-pages.mjs",
+    "dev:worker": "node scripts/dev.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build:publish": "node scripts/build-pages.mjs --docs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

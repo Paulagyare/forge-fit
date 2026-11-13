@@ -1,0 +1,2 @@
+import {spawn} from 'node:child_process';
+const args=process.argv.slice(2);const idx=args.lastIndexOf('--port');const port=idx>=0?args[idx+1]:'4173';const hi=args.lastIndexOf('--host');const host=hi>=0?args[hi+1]:'127.0.0.1';const child=spawn(process.execPath,['node_modules/wrangler/bin/wrangler.js','dev','--ip',host,'--port',port,'--show-interactive-dev-session=false'],{stdio:'inherit'});for(const s of ['SIGINT','SIGTERM'])process.on(s,()=>child.kill(s));child.on('exit',code=>process.exit(code||0));

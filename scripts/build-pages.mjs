@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
+const output=process.argv.includes('--docs')?'docs':'_site';
+await rm(output,{recursive:true,force:true});await mkdir(output,{recursive:true});await cp('web',output,{recursive:true});
+let html=await readFile('web/index.html','utf8');
+html=html.replace(/(href|src)="\/(manifest\.webmanifest|icon\.svg|style\.css|app\.js)"/g,'$1="./$2"');
+html=html.replace('<script src="./app.js"></script>','<script src="./config.js"></script><script src="./app.js"></script>');
+await writeFile(output+'/index.html',html);
+await writeFile(output+'/config.js','window.FORGE_CONFIG = '+JSON.stringify({hosting:'github-pages',connectedAppUrl:'https://paul-forge-fit.exquisitetune16.chatgpt.site/'},null,2)+';\n');
+const manifest=JSON.parse(await readFile('web/manifest.webmanifest','utf8'));manifest.id='./';manifest.start_url='./';manifest.scope='./';manifest.icons.forEach(icon=>icon.src='./'+icon.src.split('/').at(-1));await writeFile(output+'/manifest.webmanifest',JSON.stringify(manifest,null,2)+'\n');await writeFile(output+'/.nojekyll','');
+console.log('Built portable GitHub Pages app in '+output+'/');
