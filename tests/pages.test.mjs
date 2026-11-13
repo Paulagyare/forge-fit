@@ -1,7 +1,7 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {execFileSync} from 'node:child_process';
 execFileSync(process.execPath,['scripts/build-pages.mjs']);
 test('Pages entry points use project-relative asset URLs',()=>{const html=readFileSync('_site/index.html','utf8');for(const file of ['style.css','app.js','beginner.css','beginner.js','icon.svg','manifest.webmanifest','config.js'])assert.match(html,new RegExp('(?:src|href)="\\./'+file.replaceAll('.','\\.')+'\\?v=[a-f0-9]{12}"'));assert.doesNotMatch(html,/(?:src|href)="\/(?:style|app|icon|manifest)/)});
-test('PWA manifest stays within the repository scope',()=>{const m=JSON.parse(readFileSync('_site/manifest.webmanifest','utf8'));assert.equal(m.scope,'./');assert.equal(m.start_url,'./');assert.equal(m.id,'./');assert.equal(m.icons[0].src,'./icon.svg?v=homepulse-orange-1')});
+test('PWA manifest stays within the repository scope',()=>{const m=JSON.parse(readFileSync('_site/manifest.webmanifest','utf8'));assert.equal(m.scope,'./');assert.equal(m.start_url,'./');assert.equal(m.id,'./');assert.equal(m.icons[0].src,'./icon.svg?v=homepulse-blue-1')});
 test('Pages build has explicit static hosting mode and no private credentials',()=>{const c=readFileSync('_site/config.js','utf8');assert.match(c,/"hosting": "github-pages"/);assert.doesNotMatch(c,/Bearer|art_v2_|ghp_|github_pat_/)});
 test('service worker caches only its own scoped app shell',()=>{const sw=readFileSync('_site/sw.js','utf8');assert.match(sw,/BASE\.pathname/);assert.match(sw,/k\.startsWith\(CACHE_PREFIX\)/);assert.match(sw,/!SHELL\.includes\(event\.request\.url\)/)});
 

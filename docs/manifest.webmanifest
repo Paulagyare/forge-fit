@@ -6,11 +6,11 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#121512",
-  "theme_color": "#121512",
+  "background_color": "#0d1524",
+  "theme_color": "#0d1524",
   "icons": [
     {
-      "src": "./icon.svg?v=homepulse-orange-1",
+      "src": "./icon.svg?v=homepulse-blue-1",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
