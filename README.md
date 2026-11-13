@@ -4,6 +4,8 @@ A home-first workout web app built around dumbbells, small spaces, and consisten
 
 ## GitHub Pages edition
 
+The guided starting experience includes three-choice onboarding, a first-week plan with recovery check-ins, clearly labelled animated movement sketches, next-set difficulty feedback, and shareable local summary images. The full studio remains available for experienced lifters.
+
 - Ten routines and a custom routine builder
 - Twenty-seven movement guides and demonstration search links
 - Session planning for time, equipment, energy, space, and preferred muscles
@@ -45,7 +47,7 @@ The old site's storage is separate from the GitHub Pages address. Export a JSON 
 
 ## Project structure
 
-- `web/`: shared frontend source
+- `web/`: shared frontend source (`beginner.js` / `beginner.css` add the guided experience)
 - `docs/`: generated GitHub Pages application
 - `worker/`: connected-edition server source
 - `drizzle/`: schema-only SQLite/D1 migration
