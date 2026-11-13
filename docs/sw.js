@@ -1,7 +1,7 @@
 const BASE=new URL('./',self.location.href);
 const CACHE_PREFIX='forge-shell-'+BASE.pathname.replace(/[^a-zA-Z0-9]/g,'_')+'-';
-const CACHE=CACHE_PREFIX+'1dd3c67f517f';
-const SHELL=["./","./index.html","./icon.svg","./style.css?v=1bfde5e74804","./beginner.css?v=e5050a5c0936","./app.js?v=f367d0659ba8","./beginner.js?v=53fcec170264","./config.js?v=f0fea638057f","./icon.svg?v=47a25f30fe4d","./manifest.webmanifest?v=29b0c7226854"].map(path=>new URL(path,BASE).href);
+const CACHE=CACHE_PREFIX+'fa04cbf7dd71';
+const SHELL=["./","./index.html","./icon.svg","./style.css?v=64f0d56c042a","./beginner.css?v=e5050a5c0936","./app.js?v=f367d0659ba8","./beginner.js?v=53fcec170264","./config.js?v=f0fea638057f","./demos.js?v=0bd71f48428b","./icon.svg?v=47a25f30fe4d","./manifest.webmanifest?v=29b0c7226854"].map(path=>new URL(path,BASE).href);
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(async cache=>{for(const url of SHELL){try{const r=await fetch(url,{cache:'reload'});if(r.ok&&!r.redirected)await cache.put(url,r)}catch{}}}));self.skipWaiting()});
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||!SHELL.includes(event.request.url))return;event.respondWith(fetch(event.request,{cache:'no-store'}).then(response=>{if(response.ok&&!response.redirected&&response.type!=='opaqueredirect'){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}return response}).catch(async()=>await caches.match(event.request)||new Response('RepRoost is offline. Reconnect once to load the app.',{status:503,headers:{'content-type':'text/plain'}})))});
