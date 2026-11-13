@@ -1,7 +1,7 @@
 const BASE=new URL('./',self.location.href);
 const CACHE_PREFIX='forge-shell-'+BASE.pathname.replace(/[^a-zA-Z0-9]/g,'_')+'-';
-const CACHE=CACHE_PREFIX+'8efb9d48e273';
-const SHELL=["./","./index.html","./icon.svg","./style.css?v=27d6b31a03cf","./beginner.css?v=804833e0e586","./app.js?v=c87e6bf1cd1d","./beginner.js?v=11ff8d2db825","./config.js?v=f0fea638057f","./demos.js?v=95420cb1fc75","./icon.svg?v=953420a8c7f5","./wordmark.svg?v=15a3d869b5ed","./manifest.webmanifest?v=8b918dd60e9f"].map(path=>new URL(path,BASE).href);
+const CACHE=CACHE_PREFIX+'4212d745c5ff';
+const SHELL=["./","./index.html","./icon.svg","./style.css?v=c19d2516ea82","./beginner.css?v=6010b35965b8","./app.js?v=907f2e235f66","./beginner.js?v=4604f7bd81a5","./config.js?v=f0fea638057f","./demos.js?v=95420cb1fc75","./icon.svg?v=953420a8c7f5","./wordmark.svg?v=15a3d869b5ed","./manifest.webmanifest?v=8b918dd60e9f"].map(path=>new URL(path,BASE).href);
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(async cache=>{for(const url of SHELL){try{const r=await fetch(url,{cache:'reload'});if(r.ok&&!r.redirected)await cache.put(url,r)}catch{}}}));self.skipWaiting()});
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||!SHELL.includes(event.request.url))return;event.respondWith(fetch(event.request,{cache:'no-store'}).then(response=>{if(response.ok&&!response.redirected&&response.type!=='opaqueredirect'){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}return response}).catch(async()=>await caches.match(event.request)||new Response('HomePulse is offline. Reconnect once to load the app.',{status:503,headers:{'content-type':'text/plain'}})))});
